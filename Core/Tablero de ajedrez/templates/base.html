@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajedrez</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .color1 {
+    background-color: {{color1}};
+    }
+        .color2 {
+    background-color: {{color2}};
+    }
+    </style>
+</head>
+<body>
+    <div class="titulo principal">
+        <h1>Tablero de ajedrez</h1>
+    </div>
+    <div class="principal">
+
+
+        <table>
+            {%for row in range(y)%}
+                {%if row%2 == 0:%}
+                    <tr>
+                        {% for col in range(x): %}
+                            {% if(col%2 == 0): %}
+                                <td><div class="caja color1"></div></td>
+                            {%else:%}
+                                <td><div class="caja color2"></div></td>
+                            {% endif%}
+                        {% endfor %}
+                    </tr>
+                {%elif row%2 != 0:%}
+                    <tr>
+                        {% for col in range(x): %}
+                            {% if(col%2 == 0): %}
+                                <td><div class="caja color2"></div></td>
+                            {%else:%}
+                                <td><div class="caja color1"></div></td>
+                            {% endif%}
+                        {% endfor %}
+                    </tr>
+                {% endif%}
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
+
+
