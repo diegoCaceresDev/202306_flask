@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block Titles %} Great Number High {% endblock %}
+
+{% block Styles %}
+{% endblock %}
+
+{% block content %}
+<main class="container">
+    <h2>Welcome to the Great Number Game!</h2>
+    {% if message %}
+    <h4>{{ message }}</h4>
+    {% else %}
+    <h4>I am thinking od a number between 1 and 100</h4>
+    {% endif %}
+    <h4>Take a guess!</h4>
+
+
+    <form action="/great_quiz/" method="post">
+        <input type="text" name="number" id="number">
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</main>
+{% endblock %}
