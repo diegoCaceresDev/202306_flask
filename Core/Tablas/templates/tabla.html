@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block Titles %} Tabla HTML {% endblock %}
+
+{% block Styles %} 
+    <style>
+        .table{
+            width: 50%;
+            margin: auto;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}  
+
+<table class="table table-bordered table-sm  mt-2">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Full Name</th>
+    </tr>
+    </thead>
+    {% for usuario in users:%}
+        <tr>
+            <td>{{ usuario['first_name'] }}</td>
+            <td>{{ usuario['last_name'] }}</td>
+            <td>{{ usuario['first_name'] }} {{ usuario['last_name'] }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}    
