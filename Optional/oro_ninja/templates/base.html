@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block Titles %} {% endblock %} Base</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    {% block Styles %} {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="gold mt-3">
+
+            <label for="gold">Your Gold:</label>
+            <textarea name="gold" id="gold" cols="10" rows="1" placeholder="0">{{session["money"]}}</textarea>
+
+        </div>
+
+
+        <div class="earn_gold mt-3">
+
+            <div class="card me-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h4 class="card-title">Farm</h4>
+                    <p class="card-text">(earns 10-20 golds)</p>
+                    <form action="/process_money/" method="post">
+                        <input type="hidden" name="building" value="farm" />
+                        <input type="submit" value="Find Gold!"/>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card me-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h4 class="card-title">Cave</h4>
+                    <p class="card-text">(earns 5-10 golds)</p>
+                    <form action="/process_money/" method="post">
+                        <input type="hidden" name="building" value="cave" />
+                        <input type="submit" value="Find Gold!"/>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="card me-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h4 class="card-title">House</h4>
+                    <p class="card-text">(earns 2-5 golds)</p>
+                    <form action="/process_money/" method="post">
+                        <input type="hidden" name="building" value="house" />
+                        <input type="submit" value="Find Gold!"/>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="card me-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h4 class="card-title">Casino</h4>
+                    <p class="card-text">(earns/takes 0-50 golds)</p>
+                    <form action="/process_money/" method="post">
+                        <input type="hidden" name="building" value="casino" />
+                        <input type="submit" value="Find Gold!"/>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+        <hr>
+        <h4>Activities</h4>
+        <div class="activities">
+            <textarea id="activityTextarea" rows="10" placeholder="">
+                {% for x in session["activity"]: %}
+                    {{x}}
+                {% endfor %}
+            </textarea>
+        </div>
+        
+        <a href="/reiniciar" class="btn btn-primary mt-2 ms-4">Reiniciar el juego</a>
+    </div>
+
+
+
+
+    {% block content %} {% endblock %}
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+</html>

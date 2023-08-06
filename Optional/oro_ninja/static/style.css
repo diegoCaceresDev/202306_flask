@@ -1,0 +1,23 @@
+.earn_gold{
+    display: flex;
+}
+
+.gold{
+    display: flex;
+}
+
+.card{
+    align-items: center;
+}
+
+.activities {
+    width: 100%;
+    height: 200px; /* Esto hará que el contenedor ocupe toda la altura de la pantalla */
+    overflow-y: scroll;
+}
+
+#activityTextarea {
+    width: 100%;
+    height: 100%;
+    resize: none; /* Evita que el usuario pueda cambiar el tamaño del textarea */
+}
