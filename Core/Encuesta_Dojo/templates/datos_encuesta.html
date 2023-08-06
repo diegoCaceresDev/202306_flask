@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block Titles %} Encuesta Dojo{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="mb-3"><h1>Ninja: {{session["nombre"]}}</h1></div>
+    <p>Ciudad: {{session["ciudad"]}}</p>
+    <p>Lenguaje preferido: {{session["lenguaje"]}}</p>
+    <p>Comentarios: {{session["comentarios"]}}</p>
+    <a class="btn btn-primary mt-3" href="/">Regresar a la página principal</a>
+    </div>
+</div>
+
+{% endblock %}

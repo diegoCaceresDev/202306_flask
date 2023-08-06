@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block Titles %} Encuesta Dojo{% endblock %}
+
+{% block content %}
+
+<div class="container" >
+    <h1>Encuesta Dojo</h1>
+    <form method="POST" action="/process/">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+
+        <label for="ciudad">Ubicacion de Dojo:</label>
+        <select id="ciudad" name="ciudad">
+            <option value="">Selecciona una opcion</option>
+            <option value="Paraguay">Paraguay</option>
+            <option value="Chile">Chile</option>
+            <option value="USA">USA</option>
+        </select>
+
+        <label for="lenguaje">Lenguaje de programación preferido:</label>
+        <select id="lenguaje" name="lenguaje">
+            <option value="">Selecciona una opcion</option>
+            <option value="Python">Python</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Java">Java</option>
+        </select>
+
+        <label for="comentarios">Comentarios (Opcional):</label>
+        <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+
+        <input type="submit" value="Enviar">
+    </form>
+</div>
+
+{% endblock %}
